@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লিচু বাজার</title>
+    <link rel="stylesheet" href="{% static 'lichu/style.css' %}">
+    <style>
+        /* Internal CSS (Backup in case external file isn't loaded) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e6;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lichu-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 15px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .lichu-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .lichu-card h2 {
+            color: #ff4d4d;
+            margin: 10px 0;
+        }
+        .lichu-card p {
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍒 লিচু বাজার 🍒</h1>
+    <div class="container">
+        {% for lichu in lichus %}
+        <div class="lichu-card">
+            <img src="{% static 'lichu/' %}{{ lichu.image }}" alt="{{ lichu.name }}">
+            <h2>{{ lichu.name }}</h2>
+            <p>{{ lichu.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
